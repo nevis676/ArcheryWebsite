@@ -1,7 +1,7 @@
 # ArcheryWebsite
 Archery Website for ITC601 Group Project
 
----Credits:
+Credits:
 Ishmael Siddy           -   Project Lead
 Akashdip Singh          -   Documentation and Source Control
 Daniel Chan             -   Front End Web Development
