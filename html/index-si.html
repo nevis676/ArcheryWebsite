@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="plugins/themefisher-font/themefisher-font.min.css ">
   <link rel="stylesheet" href="plugins/slick/slick.min.css ">
   
+  <!-- ** Script for line graph ** -->
+  <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
+
   <!-- Stylesheets -->
   <link href="css/style.css" rel="stylesheet">
   
@@ -32,7 +35,7 @@
 <div class="preloader"></div>
 <!-- preloader end -->
 
-  
+
 <header class="navigation sticky-top bg-black">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.html">
@@ -79,9 +82,8 @@
         <div class="row" style="background-color: aqua;">
           <div class="col">
           <h1 class="mb-4">Line Graph</h1>
-          <div class="content">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, expedita dolorem dolorum doloremque maiores excepturi! Eos, hic labore. Obcaecati, beatae ea illo explicabo a totam accusamus! Fugit, cumque! Omnis, rerum!</p>
-          </div>
+            <div id="container">
+            </div>
           </div> 
         </div>
         <div class="row">
@@ -95,7 +97,7 @@
             </div>
           </div>
           <div class="col-md-auto">
-            <h1>&#8203;</h1>
+            <h6>&#8203;</h6>
           </div>
           <div class="col"  style="background-color: aquamarine;">
             <h1 class="mb-4">Statistics</h1>
@@ -133,6 +135,66 @@
   </div>
 </section>
 
+<script>
+  anychart.onDocumentReady(function () {
+
+    // add data
+    var data = [
+      ["2003", 1, 0, 0],
+      ["2004", 4, 0, 0],
+      ["2005", 6, 0, 0],
+      ["2006", 9, 1, 0],
+      ["2007", 12, 2, 0],
+      ["2008", 13, 5, 1],
+      ["2009", 15, 6, 1],
+      ["2010", 16, 9, 1],
+      ["2011", 16, 10, 4],
+      ["2012", 17, 11, 5],
+      ["2013", 17, 13, 6],
+      ["2014", 17, 14, 7],
+      ["2015", 17, 14, 10],
+      ["2016", 17, 14, 12],
+      ["2017", 19, 16, 12],
+      ["2018", 20, 17, 14],
+      ["2019", 20, 19, 16],
+      ["2020", 20, 20, 17],
+      ["2021", 20, 20, 20],
+      ["2022", 20, 22, 20]
+    ];
+
+    // create a data set
+    var dataSet = anychart.data.set(data);
+
+    // map the data for all series
+    var firstSeriesData = dataSet.mapAs({x: 0, value: 1});
+    var secondSeriesData = dataSet.mapAs({x: 0, value: 2});
+    var thirdSeriesData = dataSet.mapAs({x: 0, value: 3});
+
+    // create a line chart
+    var chart = anychart.line();
+
+    // create the series and name them
+    var firstSeries = chart.line(firstSeriesData);
+    firstSeries.name("Roger Federer");
+    var secondSeries = chart.line(secondSeriesData);
+    secondSeries.name("Rafael Nadal");
+    var thirdSeries = chart.line(thirdSeriesData);
+    thirdSeries.name("Novak Djokovic");
+
+    // add a legend
+    chart.legend().enabled(true);
+
+    // add a title
+    chart.title("Big Three's Grand Slam Title Race");
+
+    // specify where to display the chart
+    chart.container("container");
+
+    // draw the resulting chart
+    chart.draw();
+
+  });
+</script>
 <script src="plugins/jquery/jquery.js"></script>
 
 <script src="plugins/bootstrap/bootstrap.min.js"></script>
