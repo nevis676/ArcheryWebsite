@@ -111,12 +111,17 @@
     <div class="col">
       <div class="container">
         <div class="row">
-          <div class="col">
-            <img width=50 height=50 src="images/logo.png">
-            <h2 class="mb-4">Profile</h2>
-          <div class="content">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, expedita dolorem dolorum doloremque maiores excepturi! Eos, hic labore. Obcaecati, beatae ea illo explicabo a totam accusamus! Fugit, cumque! Omnis, rerum!</p>
-          </div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="images/logo.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Profile</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusantium cum repellat!</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
           </div>
         </div>
         <div class="row">
@@ -141,17 +146,17 @@
 
     // add data
     var data = [
-      ["13/03/2023", 1, 0, 0],
-      ["13/03/2023", 4, 0, 0],
-      ["13/03/2023", 6, 0, 0],
-      ["13/03/2023", 9, 1, 0],
-      ["13/03/2023", 12, 2, 0],
-      ["13/03/2023", 13, 5, 1],
-      ["13/03/2023", 15, 6, 1],
-      ["13/03/2023", 16, 9, 1],
-      ["13/03/2023", 16, 10, 4],
-      ["23/03/2023", 17, 11, 5],
-      ["19/04/2023", 12, 1, 13]
+      ["1/03/1899", 1, 0, 0],
+      ["13/03/1901", 4, 0, 0],
+      ["13/03/1923", 6, 0, 0],
+      ["13/03/1949", 9, 1, 0],
+      ["13/03/1950", 12, 2, 0],
+      ["13/03/1951", 13, 5, 1],
+      ["13/03/1952", 15, 6, 1],
+      ["13/03/1990", 16, 9, 1],
+      ["13/03/2000", 16, 10, 4],
+      ["23/03/2001", 17, 11, 5],
+      ["19/04/2077", 12, 1, 13]
     ];
 
     // create a data set
@@ -167,11 +172,11 @@
 
     // create the series and name them
     var firstSeries = chart.line(firstSeriesData);
-    firstSeries.name("Archery");
+    firstSeries.name("10m");
     var secondSeries = chart.line(secondSeriesData);
-    secondSeries.name("Chess");
+    secondSeries.name("25m");
     var thirdSeries = chart.line(thirdSeriesData);
-    thirdSeries.name("Scrabble");
+    thirdSeries.name("50m");
 
     // remove gaps
     chart.xScale().mode('continuous');
