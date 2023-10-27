@@ -69,7 +69,15 @@
 <section>
   <container class="container">
     <div class="row">
-      <div class="col ml-5">
+      <div class="col-md-4">
+        <div class="row">
+          <h1 class="ml-5">Enter your scores here...</h1>
+        </div>
+      </div>
+      <div class="col-sm-3 ml-5 mr-n5">
+        <div class="row">
+          <h2 class="mb-2">TSU Info</h2>
+        </div>
         <div class="row">
         <div class="form-group">
           <label for="dateInput">Date</label>
@@ -93,19 +101,104 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-1 mr-4 ml-n5">
+        <div class="row">
+          <h2  class="mb-2">Ends</h2>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endOneInput">End One</label>
+            <input type="text" class="form-control" id="endOneInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endTwoInput">End Two</label>
+            <input type="text" class="form-control" id="endTwoInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endThreeInput">End Three</label>
+            <input type="text" class="form-control" id="endThreeInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endFourInput">End Four</label>
+            <input type="text" class="form-control" id="endFourInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endFiveInput">End Five</label>
+            <input type="text" class="form-control" id="endFiveInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+      </div>
+      <div class="col col-sm-1">
+        <div class="row">
+          <h2 class="mb-2">&#12288</h2>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endSixInput">End Six</label>
+            <input type="text" class="form-control" id="endSixInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endSevenInput">End Seven</label>
+            <input type="text" class="form-control" id="endSevenInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endEightInput">End Eight</label>
+            <input type="text" class="form-control" id="endEightInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endNineInput">End Nine</label>
+            <input type="text" class="form-control" id="endNineInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="endTenInput">End Ten</label>
+            <input type="text" class="form-control" id="endTenInput" aria-describedby="inputEndOne" placeholder="Score">
+          </div>
+        </div>
+      </div>
+
     </div>
   </container>
 </section>
 <script>
+  function isNegative(num){
+    if (Math.sign(num) === -1){
+      return true;
+    }
+    return false;
+  }
   setInterval(() => {
     var roundInput = document.getElementById("roundInput").value;
     var inputWarning = document.getElementById("inputWarning");
-  
-    if(Number(roundInput) < 0 || typeof(roundInput) != 'number'){
-      inputWarning.hidden = false;
+    if(roundInput == null){
+      inputWarning.style.display = "none";
+      return;
+    }
+    if(!Number(roundInput)){
+      inputWarning.style.display = "block";
+      inputWarning.innerHTML = "Please input a number."
+    }
+    else if(isNegative(roundInput)){
+      inputWarning.style.display = "block";
+      inputWarning.innerHTML = "Please input a positive number."
     }
     else{
-      inputWarning.hidden = true;
+      inputWarning.style.display = "none";
     }
   }, 1000);
 </script>
